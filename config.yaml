@@ -14,18 +14,13 @@ profile:
 proxy-providers:
   airport:
     type: http
-    url: "https://acsub.kyapi.xyz/?sid=283482&uid=134955&token=T2xCNFhvTEYyQUVqMU01T1FCeEVjdEMyNVFSaVBNMVV4TmExYmE2Y0FKND0&app=auto"
+    url: "https://acsub.kyapi.xyz/?sid=283482&uid=134955&token=T2xCNFhvTEYyQUVqMU01T1FCeEVjdEMyNVFSaVBNMVV4TmExYmE2Y0FKND0&app=clashmeta"
     path: ./proxy_providers/airport.yaml
     interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-
-proxies:
-  - name: DIRECT
-    type: direct
-    udp: true
 
 proxy-groups:
   - name: PROXY
