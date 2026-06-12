@@ -120,9 +120,13 @@ rules:
   - DOMAIN-SUFFIX,moomoo.com.my,PROXY
   - DOMAIN-SUFFIX,moomoo.com.nz,PROXY
   - DOMAIN-SUFFIX,moomoo.co.jp,PROXY
+  - IP-CIDR,1.14.242.0/24,PROXY,no-resolve
   - IP-CIDR,119.91.245.0/24,PROXY,no-resolve
   - IP-CIDR,118.89.98.0/24,PROXY,no-resolve
-  - IP-CIDR,27.44.122.0/24,PROXY,no-resolve
+  - IP-CIDR,27.44.122.0/23,PROXY,no-resolve
+  - IP-CIDR,27.44.124.0/23,PROXY,no-resolve
+  - IP-CIDR,58.241.139.0/24,PROXY,no-resolve
+  - IP-CIDR,122.192.134.0/24,PROXY,no-resolve
   - IP-CIDR,119.28.37.0/24,PROXY,no-resolve
   - IP-CIDR,43.153.233.0/24,PROXY,no-resolve
   - IP-CIDR,129.226.111.0/24,PROXY,no-resolve
