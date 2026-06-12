@@ -1,0 +1,49 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: true
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+proxy-providers:
+  airport:
+    type: http
+    url: "REPLACE_WITH_YOUR_AIRPORT_SUBSCRIPTION_URL"
+    path: ./proxy_providers/airport.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+
+proxies:
+  - name: DIRECT
+    type: direct
+    udp: true
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    use:
+      - airport
+    proxies:
+      - DIRECT
+
+  - name: FUTU
+    type: select
+    use:
+      - airport
+    proxies:
+      - PROXY
+      - DIRECT
+
+rules:
+  - PROCESS-NAME,cn.futu.trader,FUTU
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
