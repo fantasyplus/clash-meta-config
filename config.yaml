@@ -12,11 +12,12 @@ profile:
   store-fake-ip: true
 
 proxy-providers:
-  airport:
+  airport-clashmeta:
     type: http
     url: "https://acsub.kyapi.xyz/?sid=283482&uid=134955&token=T2xCNFhvTEYyQUVqMU01T1FCeEVjdEMyNVFSaVBNMVV4TmExYmE2Y0FKND0&app=clashmeta"
-    path: ./proxy_providers/airport.yaml
+    path: ./proxy_providers/airport-clashmeta.yaml
     interval: 86400
+    exclude-filter: "^(DIRECT|REJECT|GLOBAL)$"
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -26,14 +27,14 @@ proxy-groups:
   - name: PROXY
     type: select
     use:
-      - airport
+      - airport-clashmeta
     proxies:
       - DIRECT
 
   - name: FUTU
     type: select
     use:
-      - airport
+      - airport-clashmeta
     proxies:
       - PROXY
       - DIRECT
