@@ -31,15 +31,7 @@ proxy-groups:
     proxies:
       - DIRECT
 
-  - name: FUTU
-    type: select
-    use:
-      - airport-clashmeta
-    proxies:
-      - PROXY
-      - DIRECT
-
 rules:
-  - PROCESS-NAME,cn.futu.trader,FUTU
+  - PROCESS-NAME,cn.futu.trader,PROXY
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
