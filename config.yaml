@@ -4,12 +4,59 @@ mode: rule
 log-level: info
 ipv6: true
 
-find-process-mode: strict
+find-process-mode: always
 global-client-fingerprint: chrome
 
 profile:
   store-selected: true
   store-fake-ip: true
+
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - '+.futu.com'
+    - '+.futu.cn'
+    - '+.futu.link'
+    - '+.futu0.com'
+    - '+.futu1.com'
+    - '+.futu2.com'
+    - '+.futu3.com'
+    - '+.futu4.com'
+    - '+.futu5.com'
+    - '+.futu6.com'
+    - '+.futu7.com'
+    - '+.futu8.com'
+    - '+.futu9.com'
+    - '+.futunn.com'
+    - '+.futuhn.com'
+    - '+.futuhk.com'
+    - '+.futusg.com'
+    - '+.futufin.com'
+    - '+.futustatic.com'
+    - '+.futuinc.com'
+    - '+.futuniuniu.com'
+    - '+.futuesop.com'
+    - '+.futuie.com'
+    - '+.fututrustee.com'
+    - '+.futuholdings.com'
+    - '+.moomoo.com'
+    - '+.moomoocn.com'
+    - '+.moomoo.com.au'
+    - '+.moomoo.com.sg'
+    - '+.moomoo.com.my'
+    - '+.moomoo.com.nz'
+    - '+.moomoo.co.jp'
 
 proxy-providers:
   airport-clashmeta:
@@ -33,15 +80,45 @@ proxy-groups:
 
 rules:
   - PROCESS-NAME,cn.futu.trader,PROXY
+  - PROCESS-NAME,cn.futu.trader.universal,PROXY
   - PROCESS-NAME,com.futu.trader,PROXY
   - PROCESS-NAME,com.moomoo.trade,PROXY
-  - DOMAIN-SUFFIX,futunn.com,PROXY
+  - PROCESS-NAME,com.moomoo.trade.au,PROXY
+  - PROCESS-NAME,com.moomoo.trade.ca,PROXY
+  - PROCESS-NAME,com.moomoo.trade.jp,PROXY
+  - PROCESS-NAME,com.moomoo.trade.my,PROXY
+  - PROCESS-NAME,com.moomoo.trade.nz,PROXY
+  - DOMAIN-SUFFIX,futu.com,PROXY
+  - DOMAIN-SUFFIX,futu.cn,PROXY
+  - DOMAIN-SUFFIX,futu.link,PROXY
+  - DOMAIN-SUFFIX,futu0.com,PROXY
+  - DOMAIN-SUFFIX,futu1.com,PROXY
+  - DOMAIN-SUFFIX,futu2.com,PROXY
+  - DOMAIN-SUFFIX,futu3.com,PROXY
+  - DOMAIN-SUFFIX,futu4.com,PROXY
   - DOMAIN-SUFFIX,futu5.com,PROXY
+  - DOMAIN-SUFFIX,futu6.com,PROXY
+  - DOMAIN-SUFFIX,futu7.com,PROXY
+  - DOMAIN-SUFFIX,futu8.com,PROXY
+  - DOMAIN-SUFFIX,futu9.com,PROXY
+  - DOMAIN-SUFFIX,futunn.com,PROXY
+  - DOMAIN-SUFFIX,futuhn.com,PROXY
   - DOMAIN-SUFFIX,futuhk.com,PROXY
   - DOMAIN-SUFFIX,futusg.com,PROXY
+  - DOMAIN-SUFFIX,futufin.com,PROXY
+  - DOMAIN-SUFFIX,futustatic.com,PROXY
+  - DOMAIN-SUFFIX,futuinc.com,PROXY
+  - DOMAIN-SUFFIX,futuniuniu.com,PROXY
+  - DOMAIN-SUFFIX,futuesop.com,PROXY
+  - DOMAIN-SUFFIX,futuie.com,PROXY
+  - DOMAIN-SUFFIX,fututrustee.com,PROXY
   - DOMAIN-SUFFIX,futuholdings.com,PROXY
   - DOMAIN-SUFFIX,moomoo.com,PROXY
-  - DOMAIN-KEYWORD,futu,PROXY
-  - DOMAIN-KEYWORD,moomoo,PROXY
+  - DOMAIN-SUFFIX,moomoocn.com,PROXY
+  - DOMAIN-SUFFIX,moomoo.com.au,PROXY
+  - DOMAIN-SUFFIX,moomoo.com.sg,PROXY
+  - DOMAIN-SUFFIX,moomoo.com.my,PROXY
+  - DOMAIN-SUFFIX,moomoo.com.nz,PROXY
+  - DOMAIN-SUFFIX,moomoo.co.jp,PROXY
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
