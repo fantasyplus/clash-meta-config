@@ -33,5 +33,15 @@ proxy-groups:
 
 rules:
   - PROCESS-NAME,cn.futu.trader,PROXY
+  - PROCESS-NAME,com.futu.trader,PROXY
+  - PROCESS-NAME,com.moomoo.trade,PROXY
+  - DOMAIN-SUFFIX,futunn.com,PROXY
+  - DOMAIN-SUFFIX,futu5.com,PROXY
+  - DOMAIN-SUFFIX,futuhk.com,PROXY
+  - DOMAIN-SUFFIX,futusg.com,PROXY
+  - DOMAIN-SUFFIX,futuholdings.com,PROXY
+  - DOMAIN-SUFFIX,moomoo.com,PROXY
+  - DOMAIN-KEYWORD,futu,PROXY
+  - DOMAIN-KEYWORD,moomoo,PROXY
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
